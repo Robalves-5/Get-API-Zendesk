@@ -7,11 +7,10 @@ import os
 from dotenv import load_dotenv
 
 # Carregar variáveis de ambiente
-dotenv_path_env = r'C:\Users\robson.alves\Documents\Credenciais-zendesk\.env'
-load_dotenv(dotenv_path=dotenv_path_env)
+load_dotenv(dotenv_path=".env")  # Certifique-se de que o arquivo .env está na raiz do projeto
 
 # Informações básicas
-subdomain = 'genialhelp'
+subdomain = os.getenv("ZENDESK_SUBDOMAIN")  # Adicione essa variável no .env
 email = os.getenv("ZENDESK_EMAIL")
 api_token = os.getenv("ZENDESK_API_TOKEN")
 
@@ -58,8 +57,8 @@ if response.status == 200:
         "Solicitante ID": ticket.get("requester_id"),
         "Responsável ID": ticket.get("assignee_id"),
         "Tags": ticket.get("tags"),
-        "Nome do Cliente": next((field["value"] for field in ticket.get("custom_fields", []) if field["id"] == 360016955172), "Não informado"),
-        "CPF": next((field["value"] for field in ticket.get("custom_fields", []) if field["id"] == 360016986131), "Não informado"),
+        "Nome do Cliente": next((field["value"] for field in ticket.get("custom_fields", []) if field["id"] == 123456789), "Não informado"),
+        "CPF": next((field["value"] for field in ticket.get("custom_fields", []) if field["id"] == 987654321), "Não informado"),
     }
 
     # Exibir os dados do ticket
