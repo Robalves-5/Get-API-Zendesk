@@ -7,10 +7,10 @@ import os
 from dotenv import load_dotenv
 
 # Carregar variáveis de ambiente
-load_dotenv(dotenv_path=".env")  # Certifique-se de que o arquivo .env está na raiz do projeto
+load_dotenv(dotenv_path=".env")
 
 # Informações básicas
-subdomain = os.getenv("ZENDESK_SUBDOMAIN")  # Adicione essa variável no .env
+subdomain = os.getenv("ZENDESK_SUBDOMAIN") 
 email = os.getenv("ZENDESK_EMAIL")
 api_token = os.getenv("ZENDESK_API_TOKEN")
 
